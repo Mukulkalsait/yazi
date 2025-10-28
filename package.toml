@@ -1,0 +1,59 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:jump-to-char"
+rev = "b886025"
+hash = "d2f04875bbd4ed3dd5696e8c4b094fde"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:diff"
+rev = "b886025"
+hash = "47865a70cade14a0b9b6bc6a54f16bdb"
+
+[[plugin.deps]]
+use = "pirafrank/what-size"
+rev = "d896656"
+hash = "62251f94eb67648d42cdfcfb8be0fad2"
+
+[[plugin.deps]]
+use = "Rolv-Apneseth/starship"
+rev = "a63550b"
+hash = "c2021386289a0cbb3e152a052f67c177"
+
+[[plugin.deps]]
+use = "imsi32/yatline"
+rev = "88bd1c5"
+hash = "981acbe9b758b1af3a8154c932bb936d"
+
+[[plugin.deps]]
+use = "wekauwau/yatline-tokyo-night"
+rev = "19dbd25"
+hash = "5f00a80a79b9f7fd8e24d6fa5dbb3ae"
+
+[[plugin.deps]]
+use = "stelcodes/bunny"
+rev = "bd8a767"
+hash = "5dded0f0f40142f99dda23aedd76b2bf"
+
+[[plugin.deps]]
+use = "boydaihungst/gvfs"
+rev = "a21af9c"
+hash = "f7273e62595318d3b2d5cb5eb4bea856"
+
+[[plugin.deps]]
+use = "boydaihungst/simple-tag"
+rev = "79411b0"
+hash = "fb61033b7e6cbd8d37d1191456b44c91"
+
+[[flavor.deps]]
+use = "BennyOe/tokyo-night"
+rev = "b3950bf"
+hash = "319ce574cdb2865baf4323db90456504"
+
+[[flavor.deps]]
+use = "gosxrgxx/flexoki-dark"
+rev = "28e1977"
+hash = "9dbbb64ea20f9f1271c31951dea55c7b"
+
+[[flavor.deps]]
+use = "sanjinso/monokai-vibrant"
+rev = "8b68223"
+hash = "f4458ebaf8961d714eba05fe5ba40166"
