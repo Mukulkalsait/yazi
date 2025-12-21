@@ -18,6 +18,25 @@ desc = "Start bunny.yazi"
 on = ";"
 run = "plugin bunny"
 
+
+# R: image layout switching
+# [[mgr.prepend_keymap]]
+# desc = "Normal layout"
+# on = "i"
+# run = "plugin bunny"
+#
+# [[mgr.prepend_keymap]]
+# desc = "Fast image preview"
+# on = "I"
+# run = "layout preview_small"
+
+# [mgr]
+# prepend_keymap = [
+#   { on = ["p"], run = "layout default", desc = "Normal layout" },
+#   { on = ["P"], run = "layout preview_small", desc = "Fast image preview" },
+# ]
+
+
 # Y:
 # # Optionally, add another keymap to immediately fuzzy search bookmarks
 # [[mgr.prepend_keymap]]
