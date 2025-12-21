@@ -48,20 +48,23 @@ require("bunny"):setup({
 		{ key = "/", path = "/" },
 
 
-    { key = "2", path = "~/A_Files/2_git_repos/", desc = "2_git_repos" },
-    { key = "3", path = "~/A_Files/3_Repos_All/", desc = "3_Repos_All" },
-    { key = "4", path = "~/A_Files/4_AppsData/", desc = "4_AppsData" },
-    { key = "6", path = "~/A_Files/6_WindowsBackup/", desc = "6_WindowsBackup" },
-    { key = "7", path = "~/A_Files/7_Zip/", desc = "7_Zip" },
-    { key = "8", path = "~/A_Files/8_MOUNTINGS/", desc = "8_MOUNTINGS" },
-    { key = "9", path = "~/A_Files/9_Pictures/", desc = "9_Pictures" },
+    { key = "1", path = "~/1_file/1_YouTube/", desc = "YouTube" },
+    { key = "2", path = "~/1_file/2_git_repos/", desc = "2_git_repos" },
+    { key = "3", path = "~/1_file/3_Repos_All/", desc = "3_Repos_All" },
+    { key = "4", path = "~/1_file/4_AppsData/", desc = "4_AppsData" },
+    { key = "6", path = "~/1_file/6_WindowsBackup/", desc = "6_WindowsBackup" },
+    { key = "7", path = "~/1_file/7_Zip/", desc = "7_Zip" },
+    { key = "8", path = "~/1_file/8_MOUNTINGS/", desc = "8_MOUNTINGS" },
+    { key = "9", path = "~/1_file/9_Pictures/", desc = "9_Pictures" },
 
 
     { key = "c", path = "~/.config", desc = "Config" },
-    { key = "d", path = "~/A_Files/5_ZenDownloads/", desc = "5_ZenDownloads" },
-    { key = "g", path = "~/A_Files/3_Repos_All/A_gitHub/", desc = "A_gitHub" },
-    { key = "K", path = "~/A_Files/3_Repos_All/A_gitHub/1_OracleCludeInfrastracture-DevOps_Professional/A_Study/2_Kind/", desc = "Kuberneties[Kind]" },
+    { key = "d", path = "~/1_file/5_ZenDownloads/", desc = "5_ZenDownloads" },
+    { key = "D", path = "~/1_file/6_WindowsBackup/1_Docs/", desc = "1_Docs" },
+    { key = "g", path = "~/1_file/3_Repos_All/A_gitHub/", desc = "A_gitHub" },
+    { key = "K", path = "~/1_file/3_Repos_All/A_gitHub/001_DevOps_OCI/A_Study/2_Kind/", desc = "Kuberneties[Kind]" },
 
+    -- ~/1_file/3_Repos_All/A_gitHub/001_DevOps_OCI/A_Study/2_Kind/
 
 
 
@@ -94,5 +97,5 @@ require("bunny"):setup({
 })
 
 
-require("gvfs"):setup({
+require("gvfs"):setup({})
 	-- (Optional) Allowed keys to select device.
