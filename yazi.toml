@@ -2,9 +2,16 @@
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
+
+[default]
+ratio = [1, 2, 4]
+
+[preview_small]
+ratio = [3, 3, 1]
+
 [mgr]
 
-ratio = [1, 4, 3]
+
 sort_by = "alphabetical"
 sort_sensitive = false
 sort_reverse = false
@@ -22,6 +29,8 @@ wrap = "no"
 tab_size = 2
 max_width = 3840
 max_height = 2160
+# max_width = 600
+# max_height = 600
 cache_dir = ""
 image_delay = 30
 image_filter = "nearest"       # orignal is "triangle" 
