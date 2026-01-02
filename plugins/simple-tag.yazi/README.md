@@ -51,7 +51,7 @@ ya pkg add boydaihungst/simple-tag
 > [!IMPORTANT]
 > Tags are automatically cleared when files/folders are deleted or moved to trash within Yazi.
 > However, if deleted outside Yazi and then recreated, their tags will be restored.
-> It also apply with renaming files/folders.
+> It also apply with renaming and moving files/folders.
 
 ## Previews
 
@@ -73,7 +73,7 @@ ya pkg add boydaihungst/simple-tag
   ![Recording 2025-03-29 at 21 30 13](https://github.com/user-attachments/assets/2c5bef3b-cb9f-49ca-976f-fb5bad5bc323)
 
 - Filter Files by Tag(s) and Modes:
-
+  In all of examples below, I didn't use fixed tag keys with `--keys`/`--key`/`--tag`/`--tags`
   - Mode = and (Default), match all of the selected tags:
 
     ![Recording 2025-03-29 at 20 56 47](https://github.com/user-attachments/assets/e7619681-7ab8-4e2c-b8ea-ea4aeb8c22db)
@@ -83,10 +83,9 @@ ya pkg add boydaihungst/simple-tag
     ![Recording 2025-03-29 at 21 01 39](https://github.com/user-attachments/assets/cf9e757f-d910-4dca-aec5-cf9c36e54f34)
 
 - Visual Selection Modes:
-  Those examples below, I didn't use fixed `--keys`/`--key`/`--tag`/`--tags`
+  In all of examples below, I didn't use fixed tag keys with `--keys`/`--key`/`--tag`/`--tags`
 
   ![image](https://github.com/user-attachments/assets/6efabb8a-0022-4aa3-ba20-04127e3c58c1)
-
   - Replace selection:
 
     ![Recording 2025-03-29 at 23 30 56](https://github.com/user-attachments/assets/364c07a7-c1ef-4323-8e92-ccb795233fd7)
@@ -105,7 +104,7 @@ ya pkg add boydaihungst/simple-tag
 
   - Exclude selection:
 
-    ![Recording 2025-03-29 at 23 27 41](https://github.com/user-attachments/assets/7fa93311-1cdb-4346-bae1-a3f97bf74043)
+    ![Recording 2025-08-06 at 16 31 31](https://github.com/user-attachments/assets/c8124b16-803d-48a4-9d44-e345060629d6)
 
   - Undo selection:
 
@@ -125,11 +124,12 @@ require("simple-tag"):setup({
   -- Disable tag key hints (popup in bottom right corner)
   hints_disabled = false, -- (Optional)
 
-  -- linemode order: adjusts icon/text position. Fo example, if you want icon to be on the mose left of linemode then set linemode_order larger than 1000.
+  -- linemode order: adjusts icon/text position. For example, if you want icon to be on the most left of linemode then set linemode_order larger than 1000.
   -- More info: https://github.com/sxyazi/yazi/blob/077faacc9a84bb5a06c5a8185a71405b0cb3dc8a/yazi-plugin/preset/components/linemode.lua#L4-L5
   linemode_order = 500, -- (Optional)
 
-  -- You can backup/restore this folder. But don't use backed up folder in the different OS.
+  -- You can backup/restore this folder within the same OS (Linux, windows, or MacOS).
+  -- But you can't restore backed up folder in the different OS because they use difference absolute path.
   -- save_path =  -- full path to save tags folder (Optional)
   --       - Linux/MacOS: os.getenv("HOME") .. "/.config/yazi/tags"
   --       - Windows: os.getenv("APPDATA") .. "\\yazi\\config\\tags"
@@ -139,6 +139,7 @@ require("simple-tag"):setup({
 	  -- Set this same value with `theme.toml` > [mgr] > hovered > reversed
 	  -- Default theme use "reversed = true".
 	  -- More info: https://github.com/sxyazi/yazi/blob/077faacc9a84bb5a06c5a8185a71405b0cb3dc8a/yazi-config/preset/theme-dark.toml#L25
+	  -- Only need to set this if you use shipped/stable yazi <= v25.5.31 or nightly yazi installed before 11/12/2025
 	  reversed = true, -- (Optional)
 
 	  -- More colors: https://yazi-rs.github.io/docs/configuration/theme#types.color
@@ -151,8 +152,8 @@ require("simple-tag"):setup({
   },
 
   -- Set tag icons. Only show when ui_mode = "icon".
-  -- Any text or nerdfont icons should work
-  -- Default icon from mactag.yazi: ●; , , 󱈤
+  -- Any text or nerdfont icons should work as long as you use nerdfont to render yazi.
+  -- Default icon from mactag.yazi: ●; Some generic icons: , , 󱈤
   -- More icon from nerd fonts: https://www.nerdfonts.com/cheat-sheet
   icons = { -- (Optional)
     -- default icon
@@ -172,6 +173,10 @@ require("simple-tag"):setup({
 
 Use one of the following methods:
 
+> [!IMPORTANT]
+>
+> For yazi (>=v25.12.29) replace `name` with `url`
+
 ```toml
 [plugin]
 
@@ -190,6 +195,11 @@ Use one of the following methods:
     { id = "simple-tag", name = "*/", run = "simple-tag" },
   ]
 
+# For yazi (>=v25.12.29), name is replaced with url
+  append_fetchers = [
+    { id = "simple-tag", url = "*", run = "simple-tag" },
+    { id = "simple-tag", url = "*/", run = "simple-tag" },
+  ]
 ```
 
 ### Keybindings in `keymap.toml`
@@ -330,7 +340,7 @@ Or you can use `keymap` to replace all other keys
 
     #  ─────────────────────── VISUAL SELECT FILES/FOLDERS BY TAGS: ───────────────────────
 
-    # Avaiable selection actions:
+    # Available selection actions:
     # replace → Replaces the current selection list with files/folders that have the selected tag.
     # unite → Combines the currently selected files/folders with those that have the selected tag.
     # intersect → Keeps only the files/folders that are present in both the current selection and the tagged items.
@@ -347,7 +357,7 @@ Or you can use `keymap` to replace all other keys
 
     # Run action on files/folders by a tag.
     # A tag hint window will show up.
-    # Simply press any tag key to do the folowing action:
+    # Simply press any tag key to do the following action:
     { on = [ "t", "s", "r" ], run = "plugin simple-tag -- replace-select", desc = "replace-select" },
     { on = [ "t", "s", "u" ], run = "plugin simple-tag -- unite-select", desc = "unite-select" },
     { on = [ "t", "s", "i" ], run = "plugin simple-tag -- intersect-select", desc = "intersect-select" },
@@ -358,7 +368,7 @@ Or you can use `keymap` to replace all other keys
 
     # Run action on files/folders by tag(s) with value from input box.
     # A tag hint window will show up.
-    # Simply input tag key(s) to do the folowing action:
+    # Simply input tag key(s) to do the following action:
     { on = [ "t", "s", "R" ], run = "plugin simple-tag -- replace-select --input", desc = "replace-select --input" },
     { on = [ "t", "s", "U" ], run = "plugin simple-tag -- unite-select --input", desc = "unite-select --input" },
     { on = [ "t", "s", "I" ], run = "plugin simple-tag -- intersect-select --input", desc = "intersect-select --input" },
@@ -376,7 +386,7 @@ Or you can use `keymap` to replace all other keys
 ### Customizing the Theme for tag hints window
 
 To modify the tag hints window appearance, edit `.../yazi/theme.toml`:
-You can also use Falvors file instead.
+You can also use Flavors file instead.
 
 ```toml
 
