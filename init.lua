@@ -1,47 +1,4 @@
-local tokyo_night_theme = require("yatline-tokyo-night"):setup("night") -- or moon/storm/day
-local catppuccin_theme = require("yatline-catppuccin"):setup("mocha") -- or "latte" | "frappe" | "macchiato"
-
-
-require("yatline"):setup ({
- theme = tokyo_night_theme,
-	-- theme = catppuccin_theme,
-	show_background = true,
-
-
-	header_line = {
-		left = {
-			section_a = {
-				{ type = "line", custom = false, name = "tabs", params = { "left" } },
-			},
-			section_b = {},
-			section_c = {},
-		},
-		right = {
-			section_a = {
-				{ type = "coloreds", custom = true, name = { { " 󰇥 ", "#3c3836" } } },
-			},
-			section_b = {},
-			section_c = {
-				{ type = "coloreds", custom = false, name = "count" },
-			},
-		},
-	},
-
-
-	status_line = {
-		left = {
-			section_a = {},
-			section_b = {},
-			section_c = {},
-		},
-		right = {
-			section_a = {},
-			section_b = {},
-			section_c = {},
-		},
-	},
-})
-
+return {
 
 require("bunny"):setup({
 	hops = {
@@ -94,8 +51,8 @@ require("bunny"):setup({
 	tabs = true, -- Enable tab hops, default is true
 	notify = false, -- Notify after hopping, default is false
 	fuzzy_cmd = "fzf", -- Fuzzy searching command, default is "fzf"
-})
-
-
-require("gvfs"):setup({})
-	-- (Optional) Allowed keys to select device.
+}),
+require("gvfs"):setup({}),
+require("sshfs"):setup(),
+require("git"):setup()
+}
